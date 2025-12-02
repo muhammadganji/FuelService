@@ -45,7 +45,7 @@ namespace FuelApi.DataStores
             if (DataPoints.Count == 0)
             {
                 var rawData = LoadRawFuelData(filePath);
-                var filteredData = ApplyMovingAverageFilter(rawData, windowSize: 2);
+                var filteredData = ApplyMovingAverageFilter(rawData, windowSize: 5);
                 var dataPoint = ConvertToFuelDataPoints(filteredData, rawData);
                 DataPoints = dataPoint;
             }
@@ -94,7 +94,8 @@ namespace FuelApi.DataStores
                     result.Add(new RawFuelDateInput { ServerDateTime = time, AnalogN1 = voltage });
                 }
             }
-            return result.OrderBy(w => w.ServerDateTime).ToList();
+            var finalResult = result.OrderBy(w => w.ServerDateTime).ToList();
+            return finalResult;
         }
 
 
