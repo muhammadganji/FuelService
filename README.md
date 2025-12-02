@@ -1,5 +1,9 @@
 # سرویس میزان سوخت
 این API مقدار سوخت را براساس نزدیک‌ترین تاریخ-زمان موجود در داده‌های ثبت‌شده اکسل بر میگرداند.
+## Requirement
+- install sdk .net 10
+- download and run the app
+
 ## API
 ```
 GET /api/fuel?timestamp={date-time}
